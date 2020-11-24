@@ -1,3 +1,16 @@
+param (
+    # Parameter help description
+    [Parameter(Mandatory = $true)]
+    [ValidateScript({ Test-Path -Path $_ -PathType Leaf})]
+    [string]
+    $SecretsFile,
+    
+    # Parameter help description
+    [Parameter()]
+    [string]
+    $Location
+)
+
 function Import-AKLStaticSecrets {
     [CmdletBinding()]
     param (
